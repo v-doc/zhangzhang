@@ -31,37 +31,37 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
 
-      - name: 同步代码到码云
-        uses: wei/git-sync@v1
-        env:
-          SOURCE_REPO: "git@github.com:v-doc/zhangzhang.git"
-          SOURCE_BRANCH: "refs/remotes/source/*"
-          DESTINATION_REPO: "git@gitee.com:v-doc/zhangzhang.git"
-          DESTINATION_BRANCH: "refs/heads/*"
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-          args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
-      # 码云点击部署
-      - name: 码云 pages 部署
-        run: npm run deploy 18373209286 ${{ secrets.GITEE_PASSWORD }}
-
-      # - name: Sync to Gitee
-      #   uses: wearerequired/git-mirror-action@master
+      # - name: 同步代码到码云
+      #   uses: wei/git-sync@v1
       #   env:
-      #     # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+      #     SOURCE_REPO: "git@github.com:v-doc/zhangzhang.git"
+      #     SOURCE_BRANCH: "refs/remotes/source/*"
+      #     DESTINATION_REPO: "git@gitee.com:v-doc/zhangzhang.git"
+      #     DESTINATION_BRANCH: "refs/heads/*"
       #     SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
       #   with:
-      #     # 注意替换为你的 GitHub 源仓库地址
-      #     source-repo: "git@github.com:v-doc/zhangzhang.git"
-      #     # 注意替换为你的 Gitee 目标仓库地址
-      #     destination-repo: "git@gitee.com:v-doc/zhangzhang.git"
+      #     args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
+      # # 码云点击部署
+      # - name: 码云 pages 部署
+      #   run: npm run deploy 18373209286 ${{ secrets.GITEE_PASSWORD }}
 
-      # - name: Build Gitee Pages
-      #   uses: yanglbme/gitee-pages-action@master
-      #   with:
-      #     # 注意替换为你的 Gitee 用户名
-      #     gitee-username: 18373209286
-      #     # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
-      #     gitee-password: ${{ secrets.GITEE_PASSWORD }}
-      #     # 注意替换为你的 Gitee 仓库
-      #     gitee-repo: v-doc/zhangzhang
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          # 注意替换为你的 GitHub 源仓库地址
+          source-repo: "git@github.com:v-doc/zhangzhang.git"
+          # 注意替换为你的 Gitee 目标仓库地址
+          destination-repo: "git@gitee.com:v-doc/zhangzhang.git"
+
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: 18373209286
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库
+          gitee-repo: v-doc/zhangzhang
