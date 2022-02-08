@@ -19,7 +19,7 @@ import * as THREE from './js/three.module.js';
 				scene = new THREE.Scene();
 
 				const envmap = new THREE.TextureLoader().load( "/zhangzhang/env.jpg",function(texture){
-					const loader = new GLTFLoader().setPath( '/zhangzhang' );
+					const loader = new GLTFLoader().setPath( '/zhangzhang/' );
 					loader.load( 'dwendwen.gltf', function ( gltf ) {
 						gltf.scene.traverse( function ( child ) {
 							if(child.name=="outer"||child.name=="mask"){
