@@ -13,6 +13,6 @@ export default defineConfig({
       }
     }
   },
-  base: '/zhangzhang',
+  base: '/zhangzhang/',
   plugins: [react()]
 })

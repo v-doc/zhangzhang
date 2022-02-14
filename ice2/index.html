@@ -32,6 +32,10 @@
           bottom: 0;
           z-index: 1;
           background-color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
       }
       .ear {
           width: 73px;
@@ -300,11 +304,19 @@
           z-index: 1;
           background-color: #A51320;
       }
+      .message {
+        font-size: 22px;
+        font-weight: bold;
+        color: pink;
+      }
     </style>
 </head>
 <body>
     <div class="wrapper" id="bingdd">
-        <div class="body"></div>
+        <div class="body">
+          <i></i>
+          <span class="message">亲爱的张张，情人节快乐！</span>
+        </div>
         <div class="ear ear_l"></div>
         <div class="ear ear_r"></div>
         <div class="arm arm_l"></div>
