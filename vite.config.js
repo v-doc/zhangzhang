@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'ice/index.html')
+        ice: resolve(__dirname, 'ice/index.html'),
+        ice2: resolve(__dirname, 'ice2/index.html'),
       }
     }
   },
